@@ -98,10 +98,9 @@ public class TrelloClientTest {
         URI uri = new URI("http://test.com/members/komnen/boards?key=test&token=test&fields=name,id&lists=all");
 
         //When
-        when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(new TrelloBoardDto[0]);
+        List<TrelloBoardDto> fetchedTrelloBoards = trelloClient.getTrelloBoards();
 
         //Then
-        Assert.assertEquals(0, );
-
+        Assert.assertEquals(0, fetchedTrelloBoards.size());
     }
 }
