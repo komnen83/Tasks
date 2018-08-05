@@ -35,7 +35,7 @@ public class TrelloClient {
         URI url = UriComponentsBuilder.fromHttpUrl(trelloConfig.getTrelloApiEndpoint() + "/members/komnen/boards")
                 .queryParam("key", trelloConfig.getTrelloAppKey())
                 .queryParam("token", trelloConfig.getTrelloAppToken())
-                .queryParam("username", trelloConfig.getTrelloAppUsername())
+//                .queryParam("username", trelloConfig.getTrelloAppUsername())
                 .queryParam("fields", "name,id")
                 .queryParam("lists", "all").build().encode().toUri();
         return url;
@@ -50,11 +50,6 @@ public class TrelloClient {
             LOGGER.error(e.getMessage(), e);
             return new ArrayList<>();
         }
-
-//        if (boardsResponse != null) {
-//            return Arrays.asList(boardsResponse);
-//        }
-//        return new ArrayList<>();
     }
 
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto) {
