@@ -33,10 +33,10 @@ public class SimpleEmailService {
             mailMessage.setTo(mail.getMailTo());
             mailMessage.setSubject(mail.getSubject());
             mailMessage.setText(mail.getMessage());
-            mailMessage.setCc(mail.getToCc());
-            if(mail.getToCc() == null) {
-                LOGGER.info("The additional receiver has not been set.");
-        }
+//            mailMessage.setCc(mail.getToCc());
+//            if(mail.getToCc() == null) {
+//                LOGGER.info("The additional receiver has not been set.");
+//        }
             return mailMessage;
     }
 }
