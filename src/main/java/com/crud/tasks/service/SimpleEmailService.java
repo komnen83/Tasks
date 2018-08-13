@@ -33,7 +33,7 @@ public class SimpleEmailService {
             mailMessage.setSubject(mail.getSubject());
             mailMessage.setText(mail.getMessage());
             mailMessage.setCc(mail.getToCc());
-            if(mail.getToCc() == null) {
+            if(mail.getToCc() != null) {
                 LOGGER.info("The additional receiver has not been set.");
         }
             return mailMessage;
