@@ -1,13 +1,14 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Mail;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 
 @Service
 public class SimpleEmailService {
@@ -32,10 +33,10 @@ public class SimpleEmailService {
             mailMessage.setTo(mail.getMailTo());
             mailMessage.setSubject(mail.getSubject());
             mailMessage.setText(mail.getMessage());
+
+        if(!StringUtils.isEmpty(mail.getToCc())) {
             mailMessage.setCc(mail.getToCc());
-            if(mail.getToCc() != null) {
-                LOGGER.info("The additional receiver has not been set.");
         }
-            return mailMessage;
+        return mailMessage;
     }
 }
